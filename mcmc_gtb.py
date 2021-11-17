@@ -135,9 +135,9 @@ def mcmc(a, b, phi, snp_dict, beta_mrg, frq_dict, idx_dict, n, ld_blk, blk_size,
     # write posterior effect sizes
     for pp in range(n_pop):
         if phi_updt == True:
-            eff_file = out_dir + '/' + '%s_%s_pst_eff_a%d_b%.1f_phiauto_chr%d.txt' % (out_name, pop[pp], a, b, chrom)
+            eff_file = out_dir + '/' + '%s_%d%s_pst_eff_a%d_b%.1f_phiauto_chr%d.txt' % (out_name, pp, pop[pp], a, b, chrom)
         else:
-            eff_file = out_dir + '/' + '%s_%s_pst_eff_a%d_b%.1f_phi%1.0e_chr%d.txt' % (out_name, pop[pp], a, b, phi, chrom)
+            eff_file = out_dir + '/' + '%s_%d%s_pst_eff_a%d_b%.1f_phi%1.0e_chr%d.txt' % (out_name, pp, pop[pp], a, b, phi, chrom)
 
         snp_pp = [snp_dict['SNP'][ii] for ii in idx_dict[pp]]
         bp_pp = [snp_dict['BP'][ii] for ii in idx_dict[pp]]
