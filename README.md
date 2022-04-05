@@ -98,7 +98,7 @@ python PRScsx.py --ref_dir=PATH_TO_REFERENCE --bim_prefix=VALIDATION_BIM_PREFIX 
 
 
 ```
-    SNP          A1   A2   BETA      P
+    SNP          A1   A2   BETA      P or STD
     rs4970383    C    A    -0.0064   4.7780e-01
     rs4475691    C    T    -0.0145   1.2450e-01
     rs13302982   A    G    -0.0232   2.4290e-01
@@ -106,13 +106,13 @@ python PRScsx.py --ref_dir=PATH_TO_REFERENCE --bim_prefix=VALIDATION_BIM_PREFIX 
 ```
 Or:
 ```
-    SNP          A1   A2   OR        P
+    SNP          A1   A2   OR        P or STD
     rs4970383    A    C    0.9825    0.5737                 
     rs4475691    T    C    0.9436    0.0691
     rs13302982   A    G    1.1337    0.0209
     ...
 ```
-where SNP is the rs ID, A1 is the effect allele, A2 is the alternative allele, BETA/OR is the effect/odds ratio of the A1 allele, P is the p-value of the effect. In fact, BETA/OR is only used to determine the direction of an association. Therefore if z-scores or even +1/-1 indicating effect directions are presented in the BETA column, the algorithm should still work properly.
+where SNP is the rs ID, A1 is the effect allele, A2 is the alternative allele, BETA/OR is the effect/odds ratio of the A1 allele, P is the p-value of the effect, STD is standard error. In fact, BETA/OR is only used to determine the direction of an association. Therefore if z-scores or even +1/-1 indicating effect directions are presented in the BETA column, the algorithm should still work properly.
 
  - GWAS_SAMPLE_SIZE (required): Sample sizes of the GWAS, in the same order of the GWAS summary statistics files, separated by comma.
 
