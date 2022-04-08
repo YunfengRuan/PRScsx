@@ -121,7 +121,9 @@ def parse_sumstats(ref_dict, vld_dict, sst_file, pop, n_subj):
                     p = max(float(ll[4]), 1e-323)
                     beta_std = sp.sign(beta)*abs(norm.ppf(p/2.0))/n_sqrt
                 elif 'SE' in header:
-                    beta_std = beta/float(ll[4])
+                    se = max(float(ll[4]), abs(beta/38.5))
+                    # p value of 1e-323 ==> zscore ~ 38.5     
+                    beta_std = beta/se/n_sqrt
                 
                 sst_eff.update({snp: beta_std})
             elif (snp, a2, a1) in comm_snp or (snp, mapping[a2], mapping[a1]) in comm_snp:
@@ -134,7 +136,8 @@ def parse_sumstats(ref_dict, vld_dict, sst_file, pop, n_subj):
                     p = max(float(ll[4]), 1e-323)
                     beta_std = -1*sp.sign(beta)*abs(norm.ppf(p/2.0))/n_sqrt
                 elif 'SE' in header:
-                    beta_std = beta/float(ll[4])
+                    se = max(float(ll[4]), abs(beta/38.5))
+                    beta_std = -1*beta/se/n_sqrt
                     
                 sst_eff.update({snp: beta_std})
 
